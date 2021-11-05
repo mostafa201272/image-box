@@ -1,0 +1,86 @@
+{% extends 'pages/users/login_and_registeration_base.html' %}
+{% load static %}
+
+<!-- Page Title -->
+{% block title %}Login | Elsherbiniy ImageBox{% endblock title %}
+
+<!-- Current Page Style -->
+{% block currentPageStyles %}
+    <link rel="stylesheet" type="text/css" href="assets/css/authentication/form-1.css"  />
+    <link rel="stylesheet" type="text/css" href="assets/css/forms/theme-checkbox-radio.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/forms/switches.css" />
+{% endblock currentPageStyles %}
+
+
+<!-- Body Content-->
+{% block body %}
+
+        <div class="form-container">
+            <div class="form-form">
+                <div class="form-form-wrap">
+                    <div class="form-container">
+                        <div class="form-content">
+
+                            <h1 class="">Log In to <a href="index.html"><span class="brand-name">Elsherbiniy ImageBOX</span></a></h1>
+                            <p class="signup-link">New Here? <a href="auth_register.html">Create an account</a></p>
+                            <form class="text-left">
+                                <div class="form">
+                                    
+                                    <!-- SQL INJECTION SECURITY LEVEL -->
+                                    {% csrf_token %}
+
+                                    <!-- FORM -->
+                                    {{form}}
+
+                                    <div class="d-sm-flex justify-content-between">
+                                        <div class="field-wrapper toggle-pass">
+                                            <p class="d-inline-block">Show Password</p>
+                                            <label class="switch s-primary">
+                                                <input type="checkbox" id="toggle-password" class="d-none">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                        <div class="field-wrapper">
+                                            <button type="submit" class="btn btn-primary" value="">Log In</button>
+                                        </div>
+                                        
+                                    </div>
+
+
+                                </div>
+                            </form>                        
+                            <p class="terms-conditions">© 2021 All Rights Reserved. <a href="index.html">Mostafa Mahmoud Elsherbiniy</a></p>
+
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+            <div class="form-image">
+                <div class="l-image">
+                </div>
+            </div>
+    </div>
+
+
+{% endblock body %}
+
+
+<!-- Current Page Scripts Files -->
+{% block currentPageScripts %}
+
+    <!-- Form Script -->
+    <script src="assets/js/authentication/form-1.js"></script>
+
+    <!-- Inputs Placehoder -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+            // Add Username placeholder
+            document.querySelector("#id_username").setAttribute("placeholder","Username")
+
+            // Add Password placeholder
+            document.querySelector("#id_password").setAttribute("placeholder","Password")
+
+        });
+    </script>
+{% endblock currentPageScripts %}
